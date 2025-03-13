@@ -94,6 +94,11 @@ export async function bake(
       replaceTarget(`![](${protocol}${encodeURI(fullPath)})`);
       continue;
     }
+    // check for isInline and target.original does not contain "|"
+    if (isInline && !target.original.includes('|')) {
+      continue;
+    }
+
 
     // Replace the link with its text if the it's inline or would create an infinite loop
     if (newAncestors.has(linkedFile) || isInline) {
