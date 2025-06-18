@@ -16,7 +16,7 @@ export function getWordCount(text: string): number {
 }
 
 export function removeTasks(text: string): string {
-  return text.replace(/\s*- \[[ x]] .*(\n|$)/gm, '');
+  return text.replace(/\s*- \[[ x]] .*(\n|$)/gm, '\n');
 }
 
 export function removeTags(text: string): string {
