@@ -96,8 +96,8 @@ export async function bake(
       replaceTarget(`![](${protocol}${encodeURI(fullPath)})`);
       continue;
     }
-    // check for those inline links and with display text
-    if (isInline && !target.displayText) {
+    // check for those inline links and whether is it a citation
+    if (isInline && !target.original.includes("|")) {
       continue;
     }
 
