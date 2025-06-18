@@ -15,6 +15,14 @@ export function getWordCount(text: string): number {
   return (stripComments(text).match(wordCountRE) || []).length;
 }
 
+export function removeTasks(text: string): string {
+  return text.replace(/\s*- \[[ x]] .*(\n|$)/gm, '');
+}
+
+export function removeTags(text: string): string {
+  return text.replace(/#\w[\w\/-]*/g, '');
+}
+
 export function dedent(text: string) {
   const firstIndent = text.match(/^([ \t]*)/);
   if (firstIndent) {

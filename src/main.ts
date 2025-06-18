@@ -8,6 +8,8 @@ export interface BakeSettings {
   bakeEmbeds: boolean;
   bakeInList: boolean;
   convertFileLinks: boolean;
+  indexRemoveTasks: boolean;
+  indexRemoveTags: boolean;
 }
 
 const DEFAULT_SETTINGS: BakeSettings = {
@@ -15,6 +17,8 @@ const DEFAULT_SETTINGS: BakeSettings = {
   bakeEmbeds: true,
   bakeInList: true,
   convertFileLinks: true,
+  indexRemoveTasks: true,
+  indexRemoveTags: true,
 };
 
 export default class EasyBake extends Plugin {

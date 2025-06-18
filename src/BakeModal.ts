@@ -83,6 +83,30 @@ export class BakeModal extends Modal {
         })
       );
 
+    new Setting(contentEl)
+      .setName('Remove Tasks')
+      .setDesc(
+        'Remove all tasks from the document'
+      )
+      .addToggle((toggle) =>
+        toggle.setValue(settings.indexRemoveTasks).onChange((value) => {
+          settings.indexRemoveTasks = value;
+          plugin.saveSettings();
+        })
+      );
+
+    new Setting(contentEl)
+      .setName('Remove Tags')
+      .setDesc(
+        'Remove all tags from the document'
+      )
+      .addToggle((toggle) =>
+        toggle.setValue(settings.indexRemoveTags).onChange((value) => {
+          settings.indexRemoveTags = value;
+          plugin.saveSettings();
+        })
+      );
+
     new Setting(contentEl).setName('Output file name').then((setting) => {
       new Setting(contentEl).then((setting) => {
         setting.addButton((btn) =>

@@ -13,6 +13,8 @@ import {
   extractSubpath,
   sanitizeBakedContent,
   stripFirstBullet,
+  removeTasks,
+  removeTags,
 } from './util';
 
 const lineStartRE = /(?:^|\n) *$/;
@@ -112,6 +114,14 @@ export async function bake(
     replaceTarget(
       listMatch ? applyIndent(stripFirstBullet(baked), listMatch[1]) : baked
     );
+  }
+
+  if (settings.indexRemoveTasks) {
+    text = removeTasks(text);
+  }
+
+  if (settings.indexRemoveTags) {
+    text = removeTags(text);
   }
 
   return text;
